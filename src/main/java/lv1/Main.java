@@ -11,26 +11,35 @@ public class Main {
         String replay;
         int n1;
         int n2;
+        char oper;
 
         System.out.println("Hello, Calculator!");
 
         do {
-            // 0이상의 양의 정수만 받기
+            // 0이상의 양의 정수만 받기 + 다른 타입의 입력시 오류 처리
             while (true) {
                 System.out.print("첫 번째 숫자를 입력하세요: ");
-                n1 = scanner.nextInt();
-                if (n1 >= 0) break;
-                System.out.println("0 이상의 정수를 입력하세요");
-            }
-            while (true) {
-                System.out.print("두 번째 숫자를 입력하세요: ");
-                n2 = scanner.nextInt();
-                if (n2 >= 0) break;
-                System.out.println("0 이상의 정수를 입력하세요");
+                if (scanner.hasNextInt()) {
+                    n1 = scanner.nextInt();
+                    if (n1 >= 0) break;
+                    System.out.println("0 이상의 정수를 입력하세요");
+                } else {
+                    System.out.println("숫자만 입력해주세요.");
+                    scanner.next();
+                }
             }
 
-            // oper 선언
-            char oper;
+            while (true) {
+                System.out.print("두 번째 숫자를 입력하세요: ");
+                if (scanner.hasNextInt()) {
+                    n2 = scanner.nextInt();
+                    if (n2 >= 0) break;
+                    System.out.println("0 이상의 정수를 입력하세요");
+                } else {
+                    System.out.println("숫자만 입력해주세요.");
+                    scanner.next();
+                }
+            }
 
             // 사칙연산 기호 전달받기
             while (true) {
