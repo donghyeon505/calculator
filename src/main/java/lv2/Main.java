@@ -54,16 +54,19 @@ public class Main {
                 System.out.println("올바른 기호를 입력하세요.");
             }
 
-            int result = calculator.calcul(n1, n2, oper);
-            System.out.println("result = " + result);
+            // 결과값을 가져온 리스트로 표기
+            int result = calculator.calculate(n1, n2, oper);
+            System.out.println("result = " + calculator.getResultList());
+
+            // 결과 값 제거
+            calculator.removeResultList();
 
             // 반복 여부
             System.out.print("더 계산하시겠습니까? (exit 입력 시 종료):");
             replay = scanner.next();
 
         } while (!replay.equals("exit"));
-
-        //계산기 종료
+        // 계산기 종료
         System.out.print("계산기 종료");
     }
 }
