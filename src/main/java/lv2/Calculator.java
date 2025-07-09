@@ -1,10 +1,17 @@
 package lv2;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Calculator {
 
+    // 컬렉션 필드
+    private List<Integer> resultList = new ArrayList<>();
+
+    // 사칙연산 메서드
     public int calcul(int n1, int n2, char oper) {
         int result = 0;
-
+        // 사칙연산
         switch (oper) {
             case '+':
                 result = n1 + n2;
@@ -24,10 +31,20 @@ public class Calculator {
                 }
                 break;
         }
-        return result;
 
+        // 컬렉션 필드에 저장
+        resultList.add(result);
+
+        // 결과값 반환
+        return result;
     }
 
+    public List<Integer> getResultList() {
+        return resultList;
+    }
 
+    public void setResultList(List<Integer> resultList) {
+        this.resultList = resultList;
+    }
 
 }
