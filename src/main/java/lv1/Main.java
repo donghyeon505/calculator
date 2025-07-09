@@ -15,9 +15,6 @@ public class Main {
         System.out.println("Hello, Calculator!");
 
         do {
-            // 숫자 입력
-            // n1, n2 선언
-
             // 0이상의 양의 정수만 받기
             while (true) {
                 System.out.print("첫 번째 숫자를 입력하세요: ");
@@ -74,7 +71,7 @@ public class Main {
             }
 
             // 반복 여부
-            System.out.println("더 계산하시겠습니까? (exit 입력 시 종료):");
+            System.out.print("더 계산하시겠습니까? (exit 입력 시 종료):");
             replay = scanner.next();
 
         } while (!replay.equals("exit"));
