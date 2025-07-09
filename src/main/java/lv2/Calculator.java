@@ -9,7 +9,7 @@ public class Calculator {
     private List<Integer> resultList = new ArrayList<>();
 
     // 사칙연산 메서드
-    public int calcul(int n1, int n2, char oper) {
+    public int calculate(int n1, int n2, char oper) {
         int result = 0;
         // 사칙연산
         switch (oper) {
@@ -39,12 +39,18 @@ public class Calculator {
         return result;
     }
 
+    // 게더 메서드
     public List<Integer> getResultList() {
         return resultList;
     }
 
+    // 세터 메서드
     public void setResultList(List<Integer> resultList) {
         this.resultList = resultList;
     }
 
+    // 컬렉션에서 가장 먼저 추가된 데이터를 삭제하는 메서드
+    public void removeResultList() {
+            resultList.remove(0);
+    }
 }
