@@ -65,7 +65,7 @@ public class Main {
             }
 
             // 결과값
-            // int result = calculator.calculate(n1, n2, operEnum);
+            int result = calculator.calculate(n1, n2, operEnum);
 
             // 결과값을 가져온 리스트로 표기
             System.out.println("result = " + calculator.getResultList());
