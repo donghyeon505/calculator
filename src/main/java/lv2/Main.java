@@ -10,17 +10,20 @@ public class Main {
         Calculator calculator = new Calculator();
         Scanner scanner = new Scanner(System.in);
 
-        // 변수 선언
+        // replay 변수 선언
         String replay;
-        int n1;
-        int n2;
-        char oper;
+
 
         // 시작
         System.out.println("Hello, Calculator!");
 
         // 반복
         do {
+            // 변수 선언
+            int n1;
+            int n2;
+            char oper;
+
             // 0이상의 양의 정수만 받기 + 다른 타입의 입력시 오류 처리
             while (true) {
                 System.out.print("첫 번째 숫자를 입력하세요: ");
@@ -46,7 +49,7 @@ public class Main {
                 }
             }
 
-            // 사칙연산 기호 전달받기
+            // 사칙연산 기호 입력 및 유효성 검사
             while (true) {
                 System.out.print("사칙연산 기호를 입력하세요(+,-,*,/): ");
                 oper = scanner.next().charAt(0);
