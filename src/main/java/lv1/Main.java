@@ -5,17 +5,20 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-
+        // Scanner 객체 생성
         Scanner scanner = new Scanner(System.in);
-        // 변수들 선언
+
+        // replay 변수 선언
         String replay;
-        int n1;
-        int n2;
-        char oper;
 
         System.out.println("Hello, Calculator!");
 
         do {
+            // 변수 선언
+            int n1;
+            int n2;
+            char oper;
+
             // 0이상의 양의 정수만 받기 + 다른 타입의 입력시 오류 처리
             while (true) {
                 System.out.print("첫 번째 숫자를 입력하세요: ");
@@ -41,7 +44,7 @@ public class Main {
                 }
             }
 
-            // 사칙연산 기호 전달받기
+            // 사칙연산 기호 입력 및 유효성 검사
             while (true) {
                 System.out.print("사칙연산 기호를 입력하세요(+,-,*,/): ");
                 oper = scanner.next().charAt(0);
@@ -74,7 +77,7 @@ public class Main {
                     break;
             }
 
-            //결과값 입력
+            // 결과값 출력
             if (letResult) {
                 System.out.println("result = " + result);
             }
@@ -85,7 +88,7 @@ public class Main {
 
         } while (!replay.equals("exit"));
 
-        //계산기 종료
+        // 계산기 종료
         System.out.print("계산기 종료");
     }
 }

@@ -1,7 +1,5 @@
 package lv3;
 
-import lv2.Calculator;
-
 import java.util.Scanner;
 
 public class Main {
@@ -9,20 +7,22 @@ public class Main {
     public static void main(String[] args) {
 
         // 인스턴스 화
-        lv2.Calculator calculator = new Calculator();
+        Calculator calculator = new Calculator();
         Scanner scanner = new Scanner(System.in);
 
-        // 변수 선언
+        // replay 변수 선언
         String replay;
-        int n1;
-        int n2;
-        char oper;
 
         // 시작
         System.out.println("Hello, Calculator!");
 
         // 반복
         do {
+            // 변수 선언
+            int n1;
+            int n2;
+            Operator operEnum;
+
             // 0이상의 양의 정수만 받기 + 다른 타입의 입력시 오류 처리
             while (true) {
                 System.out.print("첫 번째 숫자를 입력하세요: ");
@@ -48,16 +48,26 @@ public class Main {
                 }
             }
 
-            // 사칙연산 기호 전달받기
+            // 사칙연산 기호 입력 및 유효성 검사
             while (true) {
                 System.out.print("사칙연산 기호를 입력하세요(+,-,*,/): ");
-                oper = scanner.next().charAt(0);
-                if (oper == '+' || oper == '-' || oper == '*' || oper == '/') break;
-                System.out.println("올바른 기호를 입력하세요.");
+                char oper = scanner.next().charAt(0);
+
+                // 올바른 기호인지 판단하기위해 여기서 변환
+                operEnum = Operator.fromChar(oper);
+
+                // 올바르지않으면 재시작
+                if (operEnum == null) {
+                    System.out.println("올바른 기호를 입력하세요.");
+                } else {
+                    break;
+                }
             }
 
+            // 결과값
+            // int result = calculator.calculate(n1, n2, operEnum);
+
             // 결과값을 가져온 리스트로 표기
-            int result = calculator.calculate(n1, n2, oper);
             System.out.println("result = " + calculator.getResultList());
 
             // 결과 값 제거
