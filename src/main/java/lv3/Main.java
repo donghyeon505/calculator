@@ -10,6 +10,7 @@ public class Main {
         // 인스턴스 화
         Calculator<Double> calculator = new Calculator<>();
         Scanner scanner = new Scanner(System.in);
+        Input input = new Input();
 
         // replay 변수 선언
         String replay;
@@ -19,73 +20,42 @@ public class Main {
 
         // 반복
         do {
-            // 변수 선언
-            double n1;
-            double n2;
-            double n3;
-            Operator operEnum;
-            String view;
-            String delete;
-
             // 모든 숫자 받기 가능 + 다른 타입(문자) 입력시 다시 입력
-            while (true) {
-                System.out.print("첫 번째 숫자를 입력하세요: ");
-                if (scanner.hasNextDouble()) {
-                    n1 = scanner.nextDouble();
-                    break;
-                } else {
-                    System.out.println("숫자만 입력해주세요.");
-                    scanner.next();
-                }
-            }
-
-            while (true) {
-                System.out.print("두 번째 숫자를 입력하세요: ");
-                if (scanner.hasNextDouble()) {
-                    n2 = scanner.nextDouble();
-                    break;
-                } else {
-                    System.out.println("숫자만 입력해주세요.");
-                    scanner.next();
-                }
-            }
+            input.getNumber();
 
             // 사칙연산 기호 입력 및 유효성 검사
-            while (true) {
-                System.out.print("사칙연산 기호를 입력하세요(+,-,*,/): ");
-                char oper = scanner.next().charAt(0);
+            input.getOper();
 
-                // 올바른 기호인지 판단하기위해 여기서 변환
-                operEnum = Operator.fromChar(oper);
-
-                // 올바르지않으면 재시작
-                if (operEnum == null) {
-                    System.out.println("올바른 기호를 입력하세요.");
-                } else {
-                    break;
-                }
-            }
+            // 값 받아오기
+            double n1 = input.getN1();
+            double n2 = input.getN2();
+            Operator operEnum = input.getOperEnum();
 
             // 결과값
             double result = calculator.calculate(n1, n2, operEnum);
             System.out.println("result: " + result);
+
+            // 변수 선언
+            double n3;
             List<Double> viewList = calculator.getResultList();
+            String view;
+            String delete;
 
             // 기능 묻기
-            System.out.println("1. 결과값 조회하기(view)");
-            System.out.println("2. 결과값 초기화하기(delete)");
-            System.out.println("3. 계속 계산하기(cont)");
-            System.out.println("4. 계산기 종료하기(exit)");
+            System.out.println("1. 결과값 조회하기");
+            System.out.println("2. 결과값 초기화하기");
+            System.out.println("3. 계속 계산하기");
+            System.out.println("종료 하려면 exit 을 입력");
 
             // 기능 실행 반복문
             label:
             while (true) {
-                System.out.print("원하시는 기능을 입력해주세요: ");
+                System.out.print("원하시는 기능을 번호를 입력해주세요: ");
                 replay = scanner.next();
 
                 switch (replay) {
                     // 조회
-                    case "view":
+                    case "1":
                         System.out.println("조회기능 목록");
                         System.out.println("1. 입력값보다 낮은 수");
                         System.out.println("2. 입력값보다 높은 수");
@@ -119,7 +89,7 @@ public class Main {
                         }
                         break;
                     // 삭제
-                    case "delete":
+                    case "2":
                         System.out.println("삭제기능 목록");
                         System.out.println("1. 모두 지우기");
                         System.out.println("2. 이전값 지우기");
@@ -164,7 +134,7 @@ public class Main {
                         }
                         break;
                     // 진행
-                    case "cont":
+                    case "3":
                         break label;
                     // 종료
                     case "exit":
@@ -178,16 +148,6 @@ public class Main {
             }
 
         } while (!replay.equals("exit"));
-
-        // 결과 값 조회하기
-//        System.out.print("값 조회하기(입력한 수보다 큰 수): ");
-//        double n3 = scanner.nextDouble();
-//        List<Double> listSearch = calculator.resultSearch(n3);
-//        if (!listSearch.isEmpty()) {
-//            System.out.println("조회된 값 = " + listSearch);
-//        } else {
-//            System.out.println("조회된 값이 없습니다.");
-//        }
 
         // 계산기 종료
         System.out.print("계산기 종료");
