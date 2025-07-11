@@ -82,6 +82,7 @@ public class Main {
                         while (!viewList.isEmpty()) {
                             calculator.removeResultList();
                         }
+                        System.out.println("삭제 완료");
                         break;
                     case "cont":
                         break label;
