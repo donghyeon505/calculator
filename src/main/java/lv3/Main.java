@@ -63,13 +63,8 @@ public class Main {
             }
 
             // 결과값
-            Double result = calculator.calculate(n1, n2, operEnum)
-
-            // 결과값을 가져온 리스트로 표기
-            System.out.println("result = " + calculator.getResultList());
-
-            // 결과 값 제거
-            calculator.removeResultList();
+            double result = calculator.calculate(n1, n2, operEnum);
+            System.out.println("result: " + result);
 
             // 반복 여부
             System.out.print("더 계산하시겠습니까? (exit 입력 시 종료):");
