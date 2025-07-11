@@ -71,6 +71,12 @@ public class Main {
             replay = scanner.next();
 
         } while (!replay.equals("exit"));
+
+        // 결과 값 조회하기
+        System.out.print("값 조회하기(입력한 수보다 큰 수): ");
+        double n3 = scanner.nextDouble();
+        System.out.println("조회된 값 = " + calculator.resultSearch(n3));
+
         // 계산기 종료
         System.out.print("계산기 종료");
     }
