@@ -76,7 +76,11 @@ public class Main {
 
                 switch (replay) {
                     case "view":
-                        System.out.println("현재까지의 결과: " + viewList);
+                        if (!viewList.isEmpty()) {
+                            System.out.println("현재까지의 결과: " + viewList);
+                        } else {
+                            System.out.println("조회된 값이 없습니다.");
+                        }
                         break;
                     case "delete":
                         while (!viewList.isEmpty()) {
