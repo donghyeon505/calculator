@@ -1,5 +1,6 @@
 package lv2;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -59,16 +60,42 @@ public class Main {
 
             // 결과값을 가져온 리스트로 표기
             int result = calculator.calculate(n1, n2, oper);
-            System.out.println("result = " + calculator.getResultList());
+            System.out.println("result: " + result);
+            List<Integer> viewList = calculator.getResultList();
 
-            // 결과 값 제거
-            calculator.removeResultList();
+            // 기능 묻기
+                System.out.println("1. 결과값 조회하기(view)");
+                System.out.println("2. 결과값 초기화하기(delete)");
+                System.out.println("3. 계속 계산하기(cont)");
+                System.out.println("4. 계산기 종료하기(exit)");
 
-            // 반복 여부
-            System.out.print("더 계산하시겠습니까? (exit 입력 시 종료):");
-            replay = scanner.next();
+            label:
+            while (true) {
+                System.out.print("원하시는 기능을 입력해주세요: ");
+                replay = scanner.next();
+
+                switch (replay) {
+                    case "view":
+                        System.out.println("현재까지의 결과: " + viewList);
+                        break;
+                    case "delete":
+                        while (!viewList.isEmpty()) {
+                            calculator.removeResultList();
+                        }
+                        break;
+                    case "cont":
+                        break label;
+                    case "exit":
+                        replay = "exit";
+                        break label;
+                    default:
+                        System.out.println("잘못된 입력입니다. 다시 입력해주세요");
+                        break;
+                }
+            }
 
         } while (!replay.equals("exit"));
+
         // 계산기 종료
         System.out.print("계산기 종료");
     }
