@@ -2,6 +2,7 @@ package lv3;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Calculator<T extends Number> {
 
@@ -52,5 +53,12 @@ public class Calculator<T extends Number> {
     // 컬렉션에서 가장 먼저 추가된 데이터를 삭제하는 메서드
     public void removeResultList() {
         resultList.remove(0);
+    }
+
+    // 컬렉션에서 입력 값보다 높은 값을 조회하는 메서드
+    public List<Double> resultSearch(double n3) {
+        return this.resultList.stream()
+                .filter(result -> result > n3)
+                .collect(Collectors.toList());
     }
 }
