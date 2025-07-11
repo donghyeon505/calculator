@@ -14,7 +14,6 @@ public class Main {
         // replay 변수 선언
         String replay;
 
-
         // 시작
         System.out.println("Hello, Calculator!");
 
@@ -64,11 +63,12 @@ public class Main {
             List<Integer> viewList = calculator.getResultList();
 
             // 기능 묻기
-                System.out.println("1. 결과값 조회하기(view)");
-                System.out.println("2. 결과값 초기화하기(delete)");
-                System.out.println("3. 계속 계산하기(cont)");
-                System.out.println("4. 계산기 종료하기(exit)");
+            System.out.println("1. 결과값 조회하기(view)");
+            System.out.println("2. 결과값 초기화하기(delete)");
+            System.out.println("3. 계속 계산하기(cont)");
+            System.out.println("4. 계산기 종료하기(exit)");
 
+            // 기능 실행 반복문
             label:
             while (true) {
                 System.out.print("원하시는 기능을 입력해주세요: ");
