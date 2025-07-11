@@ -55,10 +55,22 @@ public class Calculator<T extends Number> {
         resultList.remove(0);
     }
 
+    // 컬렉션에서 최근값 데이터를 삭제하는 메서드
+    public void removeResultList2() {
+        resultList.remove(resultList.size() - 1);
+    }
+
     // 컬렉션에서 입력 값보다 높은 값을 조회하는 메서드
     public List<Double> resultSearch(double n3) {
         return this.resultList.stream()
                 .filter(result -> result > n3)
+                .collect(Collectors.toList());
+    }
+
+    // 컬렉션에서 입력 값보다 낮은 값을 조회하는 메서드
+    public List<Double> resultSearch2(double n3) {
+        return this.resultList.stream()
+                .filter(result -> result < n3)
                 .collect(Collectors.toList());
     }
 }
