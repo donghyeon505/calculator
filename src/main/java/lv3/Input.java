@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Input {
 
-    private Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
     private double n1;
     private double n2;
     private Operator operEnum;
