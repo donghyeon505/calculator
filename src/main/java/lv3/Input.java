@@ -16,7 +16,7 @@ public class Input {
                 n1 = scanner.nextDouble();
                 break;
             } else {
-                System.out.println("숫자만 입력해주세요.");
+                System.out.println("\n숫자만 입력해주세요.");
                 scanner.next(); // 잘못된 입력 소모
             }
         }
@@ -27,7 +27,7 @@ public class Input {
                 n2 = scanner.nextDouble();
                 break;
             } else {
-                System.out.println("숫자만 입력해주세요.");
+                System.out.println("\n숫자만 입력해주세요.");
                 scanner.next(); // 잘못된 입력 소모
             }
         }
@@ -40,7 +40,7 @@ public class Input {
             operEnum = Operator.fromChar(oper);
 
             if (operEnum == null) {
-                System.out.println("올바른 기호를 입력하세요.");
+                System.out.println("\n올바른 기호를 입력하세요.");
             } else {
                 break;
             }

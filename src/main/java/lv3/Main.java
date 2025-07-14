@@ -33,7 +33,7 @@ public class Main {
 
             // 결과값
             double result = calculator.calculate(n1, n2, operEnum);
-            System.out.println("result: " + result);
+            System.out.println("\nresult: " + result + "\n");
 
             // 기능 실행 반복문
             replay = calculatorUI.display();
