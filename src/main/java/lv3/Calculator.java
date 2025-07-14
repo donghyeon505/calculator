@@ -61,14 +61,14 @@ public class Calculator<T extends Number> {
     }
 
     // 컬렉션에서 입력 값보다 높은 값을 조회하는 메서드
-    public List<Double> resultSearch(double n3) {
+    public List<Double> resultSearch2(double n3) {
         return this.resultList.stream()
                 .filter(result -> result > n3)
                 .collect(Collectors.toList());
     }
 
     // 컬렉션에서 입력 값보다 낮은 값을 조회하는 메서드
-    public List<Double> resultSearch2(double n3) {
+    public List<Double> resultSearch1(double n3) {
         return this.resultList.stream()
                 .filter(result -> result < n3)
                 .collect(Collectors.toList());
