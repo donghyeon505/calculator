@@ -33,15 +33,29 @@ public class CalculatorUI {
                 case "1":
                     System.out.print("입력값: ");
                     n3 = scanner.nextDouble();
-                    System.out.println("\n조회된 결과 = " + calculator.resultSearch2(n3));
+                    List<Double> viewList1 = calculator.resultSearch1(n3);
+                    if (!viewList1.isEmpty()) {
+                        System.out.println("\n조회된 결과 = " + calculator.resultSearch1(n3));
+                    } else {
+                        System.out.println("조회된 값이 없습니다.");
+                    }
                     return;
                 case "2":
                     System.out.print("입력값: ");
                     n3 = scanner.nextDouble();
-                    System.out.println("\n조회된 결과 = " + calculator.resultSearch(n3));
+                    List<Double> viewList2 = calculator.resultSearch1(n3);
+                    if (!viewList2.isEmpty()) {
+                        System.out.println("\n조회된 결과 = " + calculator.resultSearch2(n3));
+                    } else {
+                        System.out.println("조회된 값이 없습니다.");
+                    }
                     return;
                 case "3":
-                    System.out.println("\n전체 결과 = " + viewList);
+                    if (!viewList.isEmpty()) {
+                        System.out.println("\n조회된 결과 = " + viewList);
+                    } else {
+                        System.out.println("조회된 값이 없습니다.");
+                    }
                     return;
                 case "4":
                     System.out.println("\n조회 취소");
@@ -123,7 +137,7 @@ public class CalculatorUI {
                 case "exit":
                     return "exit";
                 case "help":
-                    System.out.println("1: 결과값 조회하기\n2: 결과값 초기화하기\n3: 계속 계산하기\nexit: 종료\n");
+                    System.out.println("1: 결과값 조회하기\n2: 결과값 초기화하기\n3: 계속 계산하기\nexit: 종료");
                     break;
                 default:
                     System.out.println("잘못된 입력입니다. 다시 입력해주세요.");
