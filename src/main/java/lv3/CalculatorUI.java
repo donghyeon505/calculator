@@ -114,6 +114,7 @@ public class CalculatorUI {
     public String display() {
         String replay;
 
+        System.out.println("===== 계산기 기능 =====");
         System.out.println("1. 결과값 조회하기");
         System.out.println("2. 결과값 초기화하기");
         System.out.println("3. 계속 계산하기");
@@ -140,7 +141,7 @@ public class CalculatorUI {
                     System.out.println("1: 결과값 조회하기\n2: 결과값 초기화하기\n3: 계속 계산하기\nexit: 종료");
                     break;
                 default:
-                    System.out.println("잘못된 입력입니다. 다시 입력해주세요.");
+                    System.out.println("잘못된 입력입니다. 기능 번호 안내(help)");
             }
         }
     }
