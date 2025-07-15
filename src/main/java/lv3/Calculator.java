@@ -7,11 +7,11 @@ import java.util.stream.Collectors;
 public class Calculator<T extends Number> {
 
     // 컬렉션 필드
-    private List<Double> resultList = new ArrayList<>();
+    private final List<Double> resultList = new ArrayList<>();
+    private double result = 0;
 
     // 사칙연산 메서드
     public double calculate(T n1, T n2, Operator oper) {
-        double result = 0;
         // 사칙연산
         switch (oper) {
             case ADD:
@@ -34,7 +34,7 @@ public class Calculator<T extends Number> {
         }
 
         // 컬렉션 필드에 저장
-        resultList.add(result);
+        addResultList(result);
 
         // 결과값 반환
         return result;
@@ -46,8 +46,8 @@ public class Calculator<T extends Number> {
     }
 
     // 세터 메서드
-    public void setResultList(List<Double> resultList) {
-        this.resultList = resultList;
+    public void addResultList(double result) {
+        resultList.add(result);
     }
 
     // 컬렉션에서 가장 먼저 추가된 데이터를 삭제하는 메서드
